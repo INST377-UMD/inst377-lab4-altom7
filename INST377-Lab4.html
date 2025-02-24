@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head><INST377-LAB4>
+    <title>INST344-Lab4</title>
+    <style>
+
+        body {
+            background-color: aquamarine;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+        .section {
+            background-color: purple;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+            
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 400px);
+            justify-content: left;
+            gap: 50px;
+        }
+        input, button {
+            padding: 8px;
+            margin-top: 5px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1 id="main-heading">INST377-Lab 4</h1>
+
+    <!--start of section 1, Alert Me-->
+<div class="container">
+    <div class="section">
+    
+        <form id="alertMeForm" onsubmit="alertName(); return false">
+            <label for="username">Name:</label>
+            <input type="text" id="username" required>
+            <button type="submit">Alert Me!</button>
+    
+    </form>
+</div>
+
+<div class="change section color">
+    <button onclick="changeColor()">Change Color</button>
+</div>  
+
+<div class="section">
+     <form id="textForm" onsubmit="validateText(); return false;">
+        <label for="textInput">Text Tester:</label>
+        <input type ="text" id="textInput" required>
+        <button type="submit">Validate Text</button>
+     </form>
+    </div>   
+    
+    
+<div class="section">
+     <button onclick="addText()">Add Text</button>
+</div>
+
+
+
+
+<!-- this is the javascript for all the sections done above-->
+
+<script>
+    function alertName() {
+
+        let userName = document.getElementById('username').value;
+
+        alert("Hi " + userName + "!");
+    }
+
+ //section2 
+ 
+ function changeColor() {
+    let currentColor = document.body.style.backgroundColor;
+    if (currentColor ==='blue') {
+        document.body.style.backgroundColor = 'green';
+    } else {
+        document.body.style.backgroundColor ='blue';
+    }
+ }
+
+ //section3
+
+ function validateText() {
+
+    let userInput = document.getElementById('textInput').value;
+
+    let validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+    if (validation.test(userInput)) {
+        alert("I reject your text tester HA!");
+    }else {
+        alert("And I still reject your other attempt!");
+    }
+}
+
+//section 4
+
+function addText() {
+
+    let heading= document.getElementById('main-heading');
+
+    heading.innerHTML += " Adding Text";
+}
+ 
+
+
+
+    
+</script>
+</div>
+
+   
+</body>
+        
+        
+</html>
